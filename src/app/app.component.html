@@ -1,3 +1,26 @@
 <h3>
   {{title}}
 </h3>
+
+<h4>
+  {{hero.name}} details!
+</h4>
+
+<!-- Details -->
+<div>
+  <label>id: </label> {{hero.id}}
+</div>
+<div>
+  <label>name: </label> {{hero.name}}
+</div>
+
+<!-- Form -->
+<form materialize class="col s12">
+  <strong>Edit:</strong>
+   <div class="row">
+    <div class="input-field col s6">
+      <input [(ngModel)]="hero.name" name="name" type="text" class="validate">
+      <label for="name">Name</label>
+    </div>
+  </div>
+</form>
