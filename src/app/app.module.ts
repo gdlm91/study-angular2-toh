@@ -6,9 +6,13 @@ import { HttpModule } from '@angular/http';
 import { MaterializeModule } from "angular2-materialize";
 
 import { AppComponent } from './app.component';
+import { HeroDetailComponent } from './hero-detail.component'
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    HeroDetailComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
