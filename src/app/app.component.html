@@ -1,9 +1,26 @@
-<!-- List -->
-<h4>My Heroes</h4>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
-  </li>
-</ul>
+<nav class="light-blue lighten-1" role="navigation">
+  <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Tour of Heroes</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a routerLink="/dashboard">Dashboard</a></li>
+      <li><a routerLink="/heroes">Heroes</a></li>
+    </ul>
 
-<my-hero-detail [hero]="selectedHero"></my-hero-detail>
+    <ul id="nav-mobile" class="side-nav">
+      <li><a routerLink="/dashboard">Dashboard</a></li>
+      <li><a routerLink="/heroes">Heroes</a></li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="page-footer orange">
+  <div class="footer-copyright">
+    <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="https://github.com/gdlm91/study-angular2-toh">gdlm91</a>
+    </div>
+  </div>
+</footer>
