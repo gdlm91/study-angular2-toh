@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { MaterializeModule } from "angular2-materialize";
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard.component';
 import { HeroesComponent } from './heroes.component';
@@ -22,25 +23,7 @@ import { HeroService } from './hero.service';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
-      {
-        path: 'heroes',
-        component: HeroesComponent
-      },
-      {
-        path: 'details/:id',
-        component: HeroDetailComponent
-      }
-    ]),
+    AppRoutingModule,
     FormsModule,
     HttpModule,
     MaterializeModule
