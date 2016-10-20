@@ -1,0 +1,19 @@
+<!-- Details -->
+<div *ngIf="hero">
+
+    <h4>{{hero.name}} details!</h4>
+
+    <p><label>id: </label> {{hero.id}}</p>
+
+    <form materialize class="col s12">
+        <div class="row">
+
+            <div class="input-field col s6">
+                <input [(ngModel)]="hero.name" id="name" name="name" type="text" class="validate" placeholder="Name">
+            </div>
+
+        </div>
+    </form>
+
+    <button (click)="goBack()" class="waves-effect waves-light btn light-blue lighten-1">Go Back</button>
+</div>

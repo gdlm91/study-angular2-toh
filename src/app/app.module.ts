@@ -35,6 +35,10 @@ import { HeroService } from './hero.service';
       {
         path: 'heroes',
         component: HeroesComponent
+      },
+      {
+        path: 'details/:id',
+        component: HeroDetailComponent
       }
     ]),
     FormsModule,

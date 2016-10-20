@@ -1,29 +1,35 @@
-import { Component, Input } from '@angular/core';
+// Keep the Input import for now, we'll remove it later:
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params }   from '@angular/router';
+import { Location }                 from '@angular/common';
+
 import { Hero } from './hero';
+import { HeroService } from './hero.service';
 
 @Component({
   selector: 'hero-detail',
-  template: `
-    <!-- Details -->
-    <div *ngIf="hero">
-
-      <h4>{{hero.name}} details!</h4>
-
-      <p><label>id: </label> {{hero.id}}</p>
-
-      <form materialize class="col s12">
-        <div class="row">
-
-          <div class="input-field col s6">
-            <input [(ngModel)]="hero.name" id="name" name="name" type="text" class="validate" placeholder="Name">
-          </div>
-
-        </div>
-      </form>
-    </div>
-  `
+  templateUrl: 'hero-detail.component.html'
 })
-export class HeroDetailComponent {
-  @Input()
+export class HeroDetailComponent implements OnInit {
   hero: Hero;
+
+  constructor(
+    private heroService: HeroService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) { }
+
+  ngOnInit(): void {
+    this.route.params.forEach((params: Params) => {
+      let id = +params['id'];
+      this.heroService.getHero(id)
+        .then(hero => this.hero = hero);
+    });
+  }
+
+
+  goBack(): void {
+    this.location.back();
+  }
+
 }
