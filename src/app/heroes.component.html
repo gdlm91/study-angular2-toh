@@ -1,15 +1,19 @@
 <h4>Heroes</h4>
 
-<div>
-  <label>Hero name:</label> <input #heroName />
-  <button (click)="add(heroName.value); heroName.value=''" class="waves-effect waves-light btn light-blue lighten-1">Add</button>
+<div class="row">
+  <div class="input-field col s9">
+    <input #heroName placeholder="Hero name..."/>
+  </div>
+  <div class="col s3">
+    <button id="add" (click)="add(heroName.value); heroName.value=''" class="waves-effect waves-light btn light-blue lighten-1">Add</button>
+  </div>
 </div>
 
 <ul class="heroes">
   <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
     <span class="badge">{{hero.id}}</span>
     <span>{{hero.name}}</span>
-    <button class="delete" (click)="delete(hero); $event.stopPropagation()">x</button>
+    <button id="delete" (click)="delete(hero); $event.stopPropagation()">x</button>
   </li>
 </ul>
 
