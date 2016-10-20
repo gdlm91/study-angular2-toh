@@ -4,7 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { MaterializeModule } from "angular2-materialize";
+//This will fake the API
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { FakeApiService } from './fake-api.service';
+
+import { MaterializeModule } from 'angular2-materialize';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +30,7 @@ import { HeroService } from './hero.service';
     AppRoutingModule,
     FormsModule,
     HttpModule,
+    InMemoryWebApiModule.forRoot(FakeApiService),
     MaterializeModule
   ],
   providers: [
